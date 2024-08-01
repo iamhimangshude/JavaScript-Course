@@ -1,0 +1,28 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "[javascript]": {
+    // This is the language specific settings.
+    "editor.maxTokenizationLineLength": 2500,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // The settings below are for Todo Highlight Extension on VS CODE by Wayou Liu
+  "todohighlight.isEnable": true,
+  "todohighlight.keywords": [
+    {
+      "text": "FIXME",
+      "color": "#333",
+      "backgroundColor": "#e67e22"
+    },
+    {
+      "text": "BUG",
+      "color": "#333",
+      "backgroundColor": "#e74c3c"
+    },
+    {
+      "text": "TODO",
+      "color": "#000",
+      "backgroundColor": "#38b000"
+    }
+  ]
+}
