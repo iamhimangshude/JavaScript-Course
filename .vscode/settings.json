@@ -3,7 +3,6 @@
   "editor.insertSpaces": true,
   "[javascript]": {
     // This is the language specific settings.
-    "editor.maxTokenizationLineLength": 2500,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // The settings below are for Todo Highlight Extension on VS CODE by Wayou Liu
