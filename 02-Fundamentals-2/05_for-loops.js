@@ -69,7 +69,7 @@ for (let i = 0; i < himangshu.length; i++) {
     console.log(himangshu[i], typeof himangshu[i]);
 }
 
-*/
+
 
 const himangshu = [
     "Himangshu",
@@ -91,3 +91,5 @@ for (let exercise = 1; exercise <= 4; exercise++) {
         console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋🏻`);
     }
 }
+
+*/
