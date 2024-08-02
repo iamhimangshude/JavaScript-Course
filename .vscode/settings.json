@@ -5,6 +5,12 @@
     // This is the language specific settings.
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // The settings below are for Todo Highlight Extension on VS CODE by Wayou Liu
   "todohighlight.isEnable": true,
   "todohighlight.keywords": [
