@@ -51,10 +51,76 @@ const restaurant = {
   },
 };
 
+/*
+//////////////////////////////////////////////////
+// Challenge #4
+
 //////////////////////////////////////////////////
 // Strings
 const airline = 'TAP Air Portugal';
 
+// Part 3
+// Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('himangshu de'.split(' '));
+
+const [firstName, lastName] = 'Himangshu De'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('himangshu de');
+capitalizeName('marc devis');
+
+// Padding a string
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '+').padEnd(30, '+'));
+console.log('Himangshu'.padStart(20, '+'));
+console.log('Himangshu'.padStart(20, '+').length);
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(1234567890));
+console.log(maskCreditCard(1234567890123456));
+console.log(maskCreditCard(1234567890123456));
+
+// Repeat
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  // console.log(`There are ${n} planes in line ${n < 10 ? 'are' : 'is'} now`);
+  console.log(
+    `There are ${n} planes in line ${'✈️'.repeat(n)} ${
+      n < 10 ? 'are' : 'is'
+    } now`
+  );
+};
+
+planesInLine(5);
+planesInLine(2);
+planesInLine(3);
+planesInLine(1);
+
+// You can refer to MDN Docs for more string methods 🚀!
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+
+// Part 2
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
@@ -113,8 +179,9 @@ checkBaggage('I have a Laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
 
+
 // PART 1
-/*
+
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
