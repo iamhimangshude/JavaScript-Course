@@ -71,6 +71,77 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// Simple Array Methods
+/* 
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE - returns a new array!
+console.log('-- SLICE --');
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+console.log(arr.slice());
+
+// SPLICE - mutates the original array by removing extracted elements!
+console.log('-- SPLICE --');
+// console.log(arr.splice(2));
+console.log(arr.splice(-1));
+console.log(arr);
+
+// REVERSE - mutates the original array by reversing its elements!
+console.log('-- REVERSE --');
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+console.log(arr.reverse());
+console.log(arr);
+
+// CONCAT - returns a new array by merging multiple arrays!
+console.log('-- CONCAT --');
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+// console.log(arr + arr2); // this returns a string
+
+// JOIN - returns a string by joining the elements of an array!
+console.log('-- JOIN --');
+console.log(letters.join(' - '));
+
+
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0)); // returns the value at the specified index!
+
+// traditional ways of getting last array element
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+
+// Using the `at` method! NOTE: Also works with strings!
+console.log(arr.at(-1));
+*/
+/////////////////////////////////////////////////////////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300]; // -ve values are withdrawals and +ve values are deposits
+
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- FOR EACH ----');
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}:You deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}:You withdrew ${Math.abs(mov)}`);
+  }
+});
