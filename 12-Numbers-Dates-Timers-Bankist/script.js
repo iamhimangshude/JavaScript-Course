@@ -289,7 +289,7 @@ console.log(Number.isFinite(23 / 0)); // Output: false
 console.log(Number.isInteger(23)); // Output: true
 console.log(Number.isInteger(23.0)); // Output: true
 console.log(Number.isInteger(23 / 0)); // Output: false
-*/
+
 
 // Math and Rounding
 console.log(Math.sqrt(25));
@@ -360,3 +360,94 @@ labelBalance.addEventListener("click", function () {
 });
 
 // NOTE: Nth time -- use the remainder operator
+
+
+// 287,460,000,000
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+const priceCents = 345_99;
+console.log(priceCents);
+
+const transferFee1 = 15_00;
+const transferFee2 = 1_500;
+
+const PI = 3.1415;
+console.log(PI);
+
+console.log(Number("230000"));
+console.log(parseInt("230_000"));
+
+
+// Working with BigInt
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+console.log(465495919845165165198132166849165154949848n); // n converts the number to BigInt
+console.log(BigInt(465495919845));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(321651564816565498168651651651651891961n * 1000n);
+// console.log(Math.sqrt(16n));
+
+const huge = 20289830237283728378237n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == "20");
+console.log(20n === "20");
+
+console.log(huge + " is REALLY big!!!");
+
+// Divisions
+console.log(10n / 3n);
+console.log(10 / 3);
+*/
+
+// Creating a date
+const now = new Date();
+/*
+console.log(now);
+
+console.log(new Date("Aug 19 2037 23:15:30"));
+console.log(new Date("December 24, 2015"));
+console.log(new Date("01-02-1997"));
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(2037, 10, 31));
+
+console.log(new Date(0)); // Unix Time
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); 
+
+
+// Working with Dates
+const future = new Date(2037, 10, 19, 15, 23, 5);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth()); // Number from 0 to 11
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(future.getTime()));
+
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
+*/
