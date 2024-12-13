@@ -183,14 +183,40 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+
+    // In each call, print the remaining time to UI
+    labelTimer.textContent = `${min} : ${sec}`;
+
+    // When 0 seconds, stop timer and log out user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = "Log in to get started";
+      containerApp.style.opacity = 0;
+    }
+    // Decrease 1s
+    time--;
+  };
+  // set time to 5 minutes
+  let time = 300;
+
+  // call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 // FAKE ALWAYS LOGGED IN
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 // Experimenting API
 // const now = new Date();
@@ -249,6 +275,10 @@ btnLogin.addEventListener("click", function (e) {
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
+    // Starting the logout timer
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -279,6 +309,9 @@ btnTransfer.addEventListener("click", function (e) {
     // Update UI
     updateUI(currentAccount);
   }
+  // Reset Timer
+  clearInterval(timer);
+  startLogOutTimer();
 });
 
 btnLoan.addEventListener("click", function (e) {
@@ -290,16 +323,21 @@ btnLoan.addEventListener("click", function (e) {
     amount > 0 &&
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
-    // Add movement
-    currentAccount.movements.push(amount);
+    const loanTimer = setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = "";
+  // Reset Timer
+  clearInterval(timer);
+  startLogOutTimer();
 });
 
 btnClose.addEventListener("click", function (e) {
@@ -539,7 +577,7 @@ console.log(+future);
 const calcDaysPassed = (date1, date2) =>
   Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
 console.log(calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4)));
-*/
+
 
 const num = 3884764.23;
 
@@ -557,3 +595,27 @@ const options = {
 console.log("US:", new Intl.NumberFormat("en-US", options).format(num));
 console.log("GER:", new Intl.NumberFormat("de-DE", options).format(num));
 console.log("IN:", new Intl.NumberFormat("en-IN", options).format(num));
+
+
+// setTimeout
+const ingredients = ["olive", "chicken"];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here's your pizza with ${ing1} and ${ing2}!🍕`),
+  3000,
+  ...ingredients
+); // and then this but after 3 seconds
+
+console.log("Waiting..."); // This executes first...
+
+// All of these are happening due to call stack! When the call stack is empty
+// then the event queue is executed and the timeout function is pushed unto the call
+// stack for execution!
+
+if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
+
+// setInterval
+setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 1000);
+*/
